@@ -1,4 +1,7 @@
 {
+    "require": {
+        "php": ">=7.4"
+    },    
     "name": "kolydart/common",
     "description": "A collection of common PHP classes.",
     "autoload": {
@@ -10,7 +13,7 @@
     "authors": [
         {
             "name": "Tassos Kolydas",
-            "website": "https://www.kolydart.gr/en"
+            "email": "https://www.kolydart.gr/en/contact"
         }
     ]
 }
