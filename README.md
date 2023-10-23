@@ -1,2 +1,2 @@
-# common
-php classes for everyday usage
+# kolydart/common
+A collection of common PHP classes
