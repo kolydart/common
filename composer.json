@@ -1,0 +1,16 @@
+{
+    "name": "kolydart/common",
+    "description": "A collection of common PHP classes.",
+    "autoload": {
+        "psr-4": {
+            "kolydart\\common\\": "src/kolydart/common/"
+        }
+    },
+    "license": "GPL",
+    "authors": [
+        {
+            "name": "Tassos Kolydas",
+            "website": "https://www.kolydart.gr/en"
+        }
+    ]
+}
