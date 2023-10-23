@@ -9,7 +9,7 @@
             "kolydart\\common\\": "src/kolydart/common/"
         }
     },
-    "license": "GPL",
+    "license": "GPL-3.0-or-later",
     "authors": [
         {
             "name": "Tassos Kolydas",
