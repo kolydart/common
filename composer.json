@@ -1,18 +1,20 @@
 {
-    "require": {
-        "php": ">=7.4"
-    },    
     "name": "kolydart/common",
     "description": "A collection of common PHP classes.",
+    "type": "library",
     "autoload": {
         "psr-4": {
-            "kolydart\\common\\": "src/kolydart/common/"
+            "kolydart\\common\\": "src/"
         }
     },
+    "minimum-stability": "stable",
     "license": "GPL-3.0-or-later",
     "authors": [
         {
             "name": "Tassos Kolydas"
         }
-    ]
+    ],
+    "require-dev": {
+        "phpunit/phpunit": ">=8.0"
+    }
 }
