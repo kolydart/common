@@ -14,7 +14,4 @@
             "name": "Tassos Kolydas"
         }
     ],
-    "require-dev": {
-        "phpunit/phpunit": ">=8.0"
-    }
 }
