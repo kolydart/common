@@ -1,9 +1,9 @@
 <?php
 
-namespace kolydart\common\Tests;
+namespace Kolydart\Common\Tests;
 
 use PHPUnit\Framework\TestCase;
-use kolydart\common\Presenter;
+use Kolydart\Common\Presenter;
 
 class PresenterTest extends TestCase
 {

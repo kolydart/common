@@ -10,12 +10,12 @@
     },
     "autoload": {
         "psr-4": {
-            "kolydart\\common\\": "src/"
+            "Kolydart\\Common\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "kolydart\\common\\Tests\\": "tests/"
+            "Kolydart\\Common\\Tests\\": "tests/"
         }
     },
     "scripts": {
