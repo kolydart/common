@@ -13,6 +13,14 @@
             "kolydart\\common\\": "src/"
         }
     },
+    "autoload-dev": {
+        "psr-4": {
+            "kolydart\\common\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit"
+    },
     "minimum-stability": "stable",
     "license": "GPL-3.0-or-later",
     "authors": [

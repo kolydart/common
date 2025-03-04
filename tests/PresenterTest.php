@@ -1,10 +1,12 @@
-<?php 
+<?php
 
+namespace kolydart\common\Tests;
+
+use PHPUnit\Framework\TestCase;
 use kolydart\common\Presenter;
-use \PHPUnit\Framework\TestCase;
 
-class PresenterTest extends TestCase{
-
+class PresenterTest extends TestCase
+{
 	/** 
 	 * @test
 	 */
