@@ -1,6 +1,6 @@
 <?php
 
-namespace kolydart\common;
+namespace Kolydart\Common;
 
 class Presenter{
 
