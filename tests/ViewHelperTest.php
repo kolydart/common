@@ -31,4 +31,42 @@ class ViewHelperTest extends TestCase
 		$this->assertStringContainsString('id="confirm-delete' . $id . '"', $result);
 		$this->assertStringContainsString($message, $result);
 	}
+	
+	/**
+	 * @test
+	 */
+	public function generic_conceal_replaces_letters_and_digits_with_x(){
+		$string = 'Test123!@#';
+		$result = ViewHelper::generic_conceal($string);
+		$this->assertEquals('xxxxxxx!@#', $result);
+	}
+	
+	/**
+	 * @test
+	 */
+	public function maskString_replaces_letters_and_digits_with_default_mask(){
+		$string = 'Test123!@#';
+		$result = ViewHelper::maskString($string);
+		$this->assertEquals('xxxxxxx!@#', $result);
+	}
+	
+	/**
+	 * @test
+	 */
+	public function maskString_uses_custom_mask_character(){
+		$string = 'Test123!@#';
+		$result = ViewHelper::maskString($string, '*');
+		$this->assertEquals('*******!@#', $result);
+	}
+	
+	/**
+	 * @test
+	 */
+	public function generic_conceal_calls_maskString(){
+		$string = 'Sample text with 123 numbers!';
+		$this->assertEquals(
+			ViewHelper::maskString($string),
+			ViewHelper::generic_conceal($string)
+		);
+	}
 } 

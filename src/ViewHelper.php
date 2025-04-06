@@ -48,4 +48,26 @@ class ViewHelper {
             </div>
 HTML;
     }
+    
+    /**
+     * Hide any letter/number; convert to 'x'
+     * 
+     * @deprecated Use maskString() instead
+     * @param  string $string String to conceal
+     * @return string         Concealed string
+     */
+    public static function generic_conceal($string) {
+        return self::maskString($string);
+    }
+    
+    /**
+     * Mask letters and digits in a string by replacing them with 'x'
+     *
+     * @param  string $string String to mask
+     * @param  string $mask Character to use as mask (default: 'x')
+     * @return string        Masked string with letters and digits replaced
+     */
+    public static function maskString($string, $mask = 'x') {
+        return preg_replace("/[\p{L}\d]/u", $mask, $string);
+    }
 } 
