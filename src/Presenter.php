@@ -7,11 +7,13 @@ namespace Kolydart\Common;
  * 
  * This class serves as a migration path from gateweb\common\Presenter
  * with maintained backward compatibility
+ * 
+ * @deprecated This class is deprecated and will be removed in future versions. 
+ * Use \Kolydart\Common\ViewHelper instead.
  */
 class Presenter {
 
     /**
-     * 
      * Generate a Bootstrap modal for confirming deletions
      *
      * @param  string|null $id Optional identifier to support multiple modals on the same page
@@ -27,27 +29,33 @@ class Presenter {
      *    </button>
      *    {!! \Kolydart\Common\Presenter::confirm_delete_modal($item->id) !!}
      * </form>
+     * 
+     * @deprecated Use \Kolydart\Common\ViewHelper::confirm_delete_modal() instead.
      */
     public static function confirm_delete_modal($id = null, $message = null) {
-        $message = $message ?? 'Are you sure you want to delete this object?';
-
-        return <<<HTML
-            <div class="modal fade" id="confirm-delete{$id}" tabindex="-1" role="dialog" aria-labelledby="deleteConfirmationModal" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h2 class="text-danger"><strong>Delete</strong></h2>
-                        </div>
-                        <div class="modal-body">
-                            <p>{$message}</p>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="submit" class="btn btn-danger btn-ok"><i class="fa fa-trash"></i> Delete</button>
-                            <a class="btn btn-link" data-dismiss="modal">Cancel</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-HTML;
+        return ViewHelper::confirm_delete_modal($id, $message);
+    }
+    
+    /**
+     * Proxy for calling methods on ViewHelper
+     *
+     * @param string $name Method name
+     * @param array $arguments Method arguments
+     * @return mixed Result from ViewHelper method
+     * @throws \BadMethodCallException If method doesn't exist on ViewHelper
+     */
+    public static function __callStatic($name, $arguments) {
+        if (method_exists(ViewHelper::class, $name)) {
+            trigger_error(
+                sprintf('Method %s::%s() is deprecated, use %s::%s() instead', 
+                    self::class, $name, ViewHelper::class, $name), 
+                E_USER_DEPRECATED
+            );
+            return ViewHelper::$name(...$arguments);
+        }
+        
+        throw new \BadMethodCallException(
+            sprintf('Method %s::%s() does not exist', ViewHelper::class, $name)
+        );
     }
 }
